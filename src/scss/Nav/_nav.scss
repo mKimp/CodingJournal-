@@ -1,0 +1,28 @@
+.nav-wrapper{
+  padding:20px;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(#c63535, $button-primary-color);
+}
+.nav{
+  display:flex;
+  align-items: center;
+}
+.nav-menu{
+  display: flex;
+  gap:20px;
+  li {
+    list-style: none;
+    justify-items: center;
+  }
+  li a {
+    color:$primary-text-color;
+  }
+}
+
+.logo-text{
+  padding: 0 10px;
+  font-weight: bold;
+  align-self: center;
+  color: $primary-text-color;
+}

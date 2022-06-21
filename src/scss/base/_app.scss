@@ -1,56 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 $primary-text-color:white;
 $button-primary-color: #275BE1;
-.App {
-  background-color: #2F303A;
-}
-.nav-wrapper{
-  padding:20px;
-  display: flex;
-  justify-content: space-between;
-}
-.nav{
-  display: flex;
-  align-items: center;
-  padding-left:10px;
-  padding-right:20px;
-  h4{
-    margin:0 10px;
-    color:$primary-text-color;
-  }
+$font-primary: 'Poppins', sans-serif;
+$background-color-main: #053742;
+
+/* Remove browser defaults */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.logo-text{
-  padding: 0 10px;
-  font-weight: bold;
-}
-.img-wrapper{
-  display: flex;
-}
-.logo-text{
-  align-self: center;
-  color: $primary-text-color;
-}
-.landing-wrapper{
-  height: 100vh;
-  overflow-y: hidden;
-}
-.body-landing{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.cat-wrapper {
-  height: auto;
-  max-width: 100%;
-  min-width: 200px;
-}
-.btn-banner{
-  background-color: $button-primary-color;
-  border:none;
-  padding: 20px 20px;
-  border-radius: 6px;
-  color: $primary-text-color;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
+body {
+  font-family: $font-primary;
+  background-color: $background-color-main;
 }
