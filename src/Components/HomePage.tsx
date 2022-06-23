@@ -1,10 +1,10 @@
 import { Nav } from "./Nav"
-import Tabs from "./Tabs"
+import TabsWrapper from "./TabsWrapper"
 export const HomePage = () => {
   return (
     <div className="homepage-wrapper">
       <Nav />
-      <Tabs />
+      <TabsWrapper />
     </div>
     )  
 }

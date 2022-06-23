@@ -1,22 +1,21 @@
 import React, {useState} from "react";
 
-const Tabs = () => {
+interface propsTabs {
+  id:string;
+  title:string;
+  activeTab:string;
+  setActiveTab: (id:string) => void;
+}
 
-  const [activeTab, setActiveTab] = useState("tab1")
 
+export const Tabs = ({id, title, activeTab, setActiveTab}:propsTabs) => {
+
+  const handleOnClick = () => {
+    setActiveTab(id);
+  }
 
   return (
-    <div className="Tabs">
-      {/* Tab nav */}
-      <ul className="nav-tabs">
-        <li className="nav-tabs-item active"><a href="#"></a>My Progress</li>
-        <li className="nav-tabs-item"><a href="#"></a>Categories</li>
-        <li className="nav-tabs-item"><a href="#"></a>Submit a coding question</li>
-      </ul>
-      <div className="outlet">
-        {/* content will be shown here */}
-      </div>
-    </div>
+    <li className={activeTab === id ? "active" : ""} onClick={handleOnClick}>{title}</li>
   );
 };
 export default Tabs;

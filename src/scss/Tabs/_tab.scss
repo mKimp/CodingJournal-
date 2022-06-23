@@ -4,11 +4,11 @@
   display: flex;
   justify-content: center;
   margin: 0 1rem;
+  flex-direction: column;
 }
 .nav-tabs{
   display: flex;
   border: 1px solid #39A2DB;
-  border-radius: 2rem;
   margin-top:2rem;
   justify-content: center;
 
@@ -16,7 +16,6 @@
     padding: 2rem;
     list-style: none;  
     cursor: pointer;
-    border-radius: 2rem;
     transition: all 0.7s;
     &:hover{
       background: rgba(50, 224, 196, 0.15);
