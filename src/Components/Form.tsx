@@ -1,60 +1,49 @@
-import { useState } from "react"
+import { error } from "console";
+import { useEffect, useRef, useState } from "react"
+import { BasicInput } from "./basicInput";
 
 export const Form = () => {
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
-  const initialiValues = {
-    questionName: "",
-    codingNumber: null,
-    codingSource: null,
-  }
-
-  const [inputs, setInputs] = useState(initialiValues);
-  const [textArea, setTextArea] = useState("");
-  const [selectedValue, setSelectedValue] = useState("dynamicProgramming");
-
-  const handleOnchange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    const event = e.target as HTMLInputElement;
-    const value = event.value;
-    const name = event.name;
-    setInputs({...inputs, [name]:value})
-    console.log(inputs);
-  } 
-
-  const handleTextArea = (e:React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTextArea(e.target.value);
-    console.log(textArea);
-  }
-
-  const handleSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
-   setSelectedValue(e.target.value);
+  const handleOnChange = (e:React.ChangeEvent<HTMLInputElement> ) => {
+    setName(e.target.value);
   }
 
   const handleSubmit = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    console.log(selectedValue)
+    console.log(name);
+    const emailInputIsValid = isEmailInputValid();
+    console.log(emailInputIsValid)
+    if(!emailInputIsValid){
+      return setError("Please type in the question name") 
+    }
+    else{
+      setError("");
+    
+    }
+  }
+
+  const isEmailInputValid = () => {
+    if(name === ""){
+      return false;
+    }
+    else{
+      return true;
+    }
+
   }
   return(
     
     <div className="form-wrapper">
-      <form className="question-form">
-          <label htmlFor="question">Question Name</label>
-          <input name="question" type="text" id="question" onChange={(e) => handleOnchange(e)}/>
+      <form>
+        <h4>Question Info</h4>
+        <BasicInput onChanged={handleOnChange} label={"Question Name"} value={name}/>
+        {error && (
+						<p className="error">{error}</p>
+				)}
+        <button onClick={(e) => {handleSubmit(e)}} className="primary">Submit</button>
 
-          <label htmlFor="codingNumber">Coding Number (optional)</label>
-          <input name="codingNumber" type="text" id="codingNumber"  onChange={(e) => handleOnchange(e)}/>
-
-          <label htmlFor="codingSource">Coding Source(optional)</label>
-          <input name="codingSource" type="text" id="codingSource" onChange={(e) => handleOnchange(e)}/>
-
-        <label htmlFor="categories">Categories</label>
-        <select name="categories" id="catergories" value={selectedValue} onChange={(e) => handleSelected(e)}>
-          <option value="dynamicProgramming">Dynamic Programming</option>
-          <option value="backTracking">Backtracking</option>
-          <option value="twoPointers">Two Pointers</option>
-
-        </select>
-        <textarea value={textArea} name="note" id="note" placeholder="Your note here"onChange={(e) => handleTextArea(e)}>This is a test area</textarea>
-        <button className="btn-submit" onClick={(e) => handleSubmit(e)}>Submit</button>
       </form>
     </div>
   )
