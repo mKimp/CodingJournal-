@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 interface SelectProps {
-  label:string
+  label:string | number
   onSelectedChanged: (e: React.ChangeEvent<HTMLSelectElement> ) => void;
 }
 
